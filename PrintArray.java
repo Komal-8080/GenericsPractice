@@ -1,27 +1,22 @@
 package dumyproject;
 
-public class PrintArray {
+public class PrintArray<T> {
 
-	//Creating Integer Array
-	public static void toPrint(Integer[] inputArray) {
-		for (int element : inputArray) {
-			System.out.printf("%s ", element);
-		}
-		System.out.println();
+	private T[] inputArray;
+	
+	
+	public PrintArray(T[] inputArray) {
+		this.inputArray = inputArray;
 	}
 
-	//Creating Double Array
-	public static void toPrint(Double[] inputArray) {
-		for (double element : inputArray) {
-			System.out.printf("%s", element);
-		}
-		System.out.println();
+	public void toPrint() {
+		PrintArray.toPrint(this.inputArray);
 	}
 	
-	////Creating Character Array
-	public static void toPrint(Character[] inputArray) {
-		for (char element : inputArray) {
-			System.out.printf("%s", element);
+	//Creating Array
+	public static <E> void toPrint(E[] inputArray) {
+		for (E element : inputArray) {
+			System.out.printf("%s ", element);
 		}
 		System.out.println();
 	}
@@ -31,8 +26,8 @@ public class PrintArray {
 		Integer[] intArray = { 1, 2, 3, 4, 5 };
 		Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
 		Character[] charArray = { 'H', 'i', 'i' };
-
-		PrintArray.toPrint(intArray);
+		
+		new PrintArray(intArray).toPrint();
 		PrintArray.toPrint(doubleArray);
 		PrintArray.toPrint(charArray);
 	}
